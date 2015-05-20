@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>BlockMe (tm)</title>
+		<script>
+			var ipc = require('ipc');
+			function load(){
+				var contents = ipc.sendSync('load', 'hello');
+				document.getElementById("hosts").value = contents;
+			}
+			function save(){
+				var contents = document.getElementById("hosts").value;
+				var result = ipc.sendSync('save', contents);
+				alert(result);
+			}
+		</script>
+	</head>
+	<body>
+		<h1>Block Me if you can</h1>
+		We are using io.js <script>document.write(process.version)</script>
+		and Electron <script>document.write(process.versions['electron'])</script>.
+		<p>
+		Atom-Shell rocks.
+		</p>
+		<button onclick="load()">Load hosts file</button>
+		<button onclick="save()">Save hosts file</button>
+		<br/>
+		<textarea id="hosts" style="width:400px;height:200px"></textarea>
+	</body>
+</html>
