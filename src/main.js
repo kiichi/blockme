@@ -25,10 +25,10 @@ app.on('window-all-closed', function() {
 app.on('ready', function() {
     appIcon = new Tray('/Users/kiichi/work/node/prj/blockme/src/tray.png');
      var contextMenu = Menu.buildFromTemplate([
-       { label: 'Item1', type: 'radio' },
-       { label: 'Item2', type: 'radio' },
-       { label: 'Item3', type: 'radio', checked: true },
-       { label: 'Item4', type: 'radio' },
+       { label: '1 Hour', type: 'radio' },
+       { label: 'Until Noon', type: 'radio' },
+       { label: 'Until 5pm', type: 'radio', checked: true },
+       { label: 'Settings', type: 'radio' },
      ]);
      appIcon.setToolTip('This is my application.');
      appIcon.setContextMenu(contextMenu);
