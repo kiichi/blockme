@@ -2,6 +2,10 @@ var app = require('app');  // Module to control application life.
 var BrowserWindow = require('browser-window');  // Module to create native browser window.
 var ipc = require('ipc');
 var fs = require('fs');
+var Menu = require('menu');
+var Tray = require('tray');
+
+var appIcon = null;
 
 // Report crashes to our server.
 require('crash-reporter').start();
@@ -19,6 +23,19 @@ app.on('window-all-closed', function() {
 // This method will be called when Electron has done everything
 // initialization and ready for creating browser windows.
 app.on('ready', function() {
+    appIcon = new Tray('/Users/kiichi/work/node/prj/blockme/src/tray.png');
+     var contextMenu = Menu.buildFromTemplate([
+       { label: 'Item1', type: 'radio' },
+       { label: 'Item2', type: 'radio' },
+       { label: 'Item3', type: 'radio', checked: true },
+       { label: 'Item4', type: 'radio' },
+     ]);
+     appIcon.setToolTip('This is my application.');
+     appIcon.setContextMenu(contextMenu);
+	
+	
+	
+	
 	// Create the browser window.
 	mainWindow = new BrowserWindow({width: 800, height: 600});
 
