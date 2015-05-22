@@ -58,6 +58,10 @@ app.on('ready', function() {
 		event.returnValue = 'success';
 	});
 
+	ipc.on('online-status-changed', function(event, status) {
+	  console.log(status);
+	});
+
 	// Emitted when the window is closed.
 	mainWindow.on('closed', function() {
 		// Dereference the window object, usually you would store windows
