@@ -13,6 +13,7 @@
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/bootstrap-slider.css" type="text/css" media="screen">
 
     <!-- Custom CSS -->
     <link href="css/simple-sidebar.css" rel="stylesheet">
@@ -24,6 +25,11 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 	
+	<style>
+	#ex1Slider .slider-track-high {
+		background: green;
+	}
+	</style>
 
 </head>
 
@@ -71,11 +77,15 @@
                     <div class="col-lg-12">
                         <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
 						<h1>Block Me if you can</h1>
-						We are using io.js <script>document.write(process.version)</script>
-						and Electron <script>document.write(process.versions['electron'])</script>.
+						<br/><br/>
 						<p>
-						Atom-Shell rocks.
+							<a href="#btn-start" class="btn btn-default" id="btn-start">Start</a>
+							<input id="timeSlider" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="120" data-slider-step="1" data-slider-value="20"/>
 						</p>
+						http://seiyria.github.io/bootstrap-slider/
+						<br/>
+						debug below
+						<hr/>
 						<button onclick="load()">Load hosts file</button>
 						<button onclick="save()">Save hosts file</button>
 						<br/>
@@ -89,22 +99,86 @@
     </div>
     <!-- /#wrapper -->
 
+
+
     <!-- jQuery -->
 	<!-- not sure why its' not loading from local. -->
-    <script src="js/jquery.js"></script>
-	<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
+    <!-- <script src="js/jquery.js"></script>
+	<script src="js/jquery_after.js" type="text/javascript" charset="utf-8"></script>
+	 -->
+	<script>
+	window.$ = window.jQuery = require('./js/jquery.js');
+	//require('./js/bootstrap.min.js');
+	//window.$.fn.slider = window.jQuery.fn.slider = require('./js/bootstrap-slider.js');
+	// $("#timeSlider").slider({
+// 		tooltip: 'always',
+// 		formatter: function(value) {
+// 				return 'Remaining: ' + (120 - value) + " min";
+// 		}
+// 	});
+	window.Slider = require('./js/bootstrap-slider.js');
+	var slider = new Slider("#timeSlider", {
+		tooltip: 'always',
+		formatter: function(value) {
+				return 'Remaining: ' + (120 - value) + " min";
+		}
+	});
+	</script>
+    <!-- <script src="js/bootstrap.min.js"></script>
+	 -->
+	<!-- <script src="js/bootstrap-slider.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/bootstrap-slider_after.js" type="text/javascript" charset="utf-8"></script>
+	 -->
     <!-- Menu Toggle Script -->
     <script>
+	
+
+// 	window.$.fn.slider = window.jQuery.fn.slider = require('./js/bootstrap-slider.js');
+// //	console.log(window.$.fn.slider);
+	// $("#timeSlider").slider({
+	// 	tooltip: 'always',
+	// 	formatter: function(value) {
+	// 			return 'Remaining: ' + (120 - value) + " min";
+	// 	}
+	// });
+
+//	$(document).ready(function(){
+		
+
     $("#menu-toggle").click(function(e) {
         e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-    </script>
+
+        $("#wrapper").toggleClass("toggled");	
+		// console.log(jQuery);
+		// console.log($);
+		// $("#timeSlider").slider({
+// 			tooltip: 'always',
+// 			formatter: function(value) {
+// 					return 'Remaining: ' + (120 - value) + " min";
+// 			}
+// 		});	
 		
+    });
+	
+	
+	// $("#timeSlider").slider({
+// 		tooltip: 'always',
+// 		formatter: function(value) {
+// 				return 'Remaining: ' + (120 - value) + " min";
+// 		}
+// 	});
+	
+//	});
+
+    </script>
+
+
+
 	<script>
+		// window.$ = window.jQuery = require('./js/jquery.js');
+		// require('./js/bootstrap.min.js');
+		// require('./js/bootstrap-slider.js');
+		
 		var ipc = require('ipc');
 
 		function load(){
@@ -125,6 +199,13 @@
 		window.addEventListener('offline',  updateOnlineStatus);
 		updateOnlineStatus();
 	</script>
+		
+		
+		
+		
+
+
+				
 </body>
 
 </html>

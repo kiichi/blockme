@@ -5,6 +5,7 @@ var fs = require('fs');
 var Menu = require('menu');
 var Tray = require('tray');
 
+
 var appIcon = null;
 
 // Report crashes to our server.
@@ -37,7 +38,10 @@ app.on('ready', function() {
 	
 	
 	// Create the browser window.
+//	mainWindow = new BrowserWindow({width: 800, height: 600, "node-integration": false});
 	mainWindow = new BrowserWindow({width: 800, height: 600});
+
+
 
 	// and load the index.html of the app.
 	mainWindow.loadUrl('file://' + __dirname + '/index.html');
