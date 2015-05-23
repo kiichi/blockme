@@ -40,3 +40,15 @@ Build Icon
 cd icons
 iconutil -c icns BlockMe.iconset 
 ```
+
+
+Build Cross Platform
+
+at root, create gulpfile.js. then
+```
+sudo npm install gulp
+sudo npm install gulp-atom
+sudo gulp atom
+```
+This will generate binaries in releases folder.
+
