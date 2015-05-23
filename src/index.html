@@ -103,12 +103,16 @@
 
     <!-- jQuery -->
 	<!-- not sure why its' not loading from local. -->
-    <!-- <script src="js/jquery.js"></script>
+    <!-- 
+	<script src="js/jquery.js"></script>
 	<script src="js/jquery_after.js" type="text/javascript" charset="utf-8"></script>
 	 -->
 	<script>
+	
+	
 	window.$ = window.jQuery = require('./js/jquery.js');
-	//require('./js/bootstrap.min.js');
+	require('./js/bootstrap.min.js');
+	
 	//window.$.fn.slider = window.jQuery.fn.slider = require('./js/bootstrap-slider.js');
 	// $("#timeSlider").slider({
 // 		tooltip: 'always',
@@ -116,6 +120,9 @@
 // 				return 'Remaining: ' + (120 - value) + " min";
 // 		}
 // 	});
+
+
+
 	window.Slider = require('./js/bootstrap-slider.js');
 	var slider = new Slider("#timeSlider", {
 		tooltip: 'always',
@@ -173,11 +180,7 @@
     </script>
 
 
-
 	<script>
-		// window.$ = window.jQuery = require('./js/jquery.js');
-		// require('./js/bootstrap.min.js');
-		// require('./js/bootstrap-slider.js');
 		
 		var ipc = require('ipc');
 
