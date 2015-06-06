@@ -53,3 +53,9 @@ sudo gulp atom
 This will generate binaries in releases folder.
 See more options.
 https://github.com/xeodou/gulp-atom#options
+
+
+
+Another quick & easy way to build app
+
+Copy html and js files into BlockMe.app/Contents/Resources/app
