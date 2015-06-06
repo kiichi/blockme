@@ -51,4 +51,5 @@ sudo npm install gulp-atom
 sudo gulp atom
 ```
 This will generate binaries in releases folder.
-
+See more options.
+https://github.com/xeodou/gulp-atom#options
